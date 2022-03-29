@@ -5,7 +5,13 @@ ui <- fluidPage(
 )
 server <- function(input, output, session) {
   output$greeting <- renderText({
-    paste0("Hello ", input$name)
+    if(input$name=="Juho") {
+      paste0("Hello ", input$name)
+    } else if (input$name=="") {
+      paste0("")
+    } else {
+      paste0("You are not Juho.")
+    }
   })
 }
 shinyApp(ui, server)
